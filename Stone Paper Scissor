@@ -1,1 +1,113 @@
 
+
+// stone paper scissor game
+import java.util.Random;
+import java.util.Scanner;
+
+public class gameRandom {
+    public static void main(String[] args) {
+        Random rand = new Random();
+        Scanner sc = new Scanner(System.in);
+        int selection_com, selection_user;
+        System.out.println();
+        System.out.println("HEY,WELCONE TO THE GANE 'STONE PAPER SCISSOR\' ");
+        System.out.println("Computer Has Already Selected");
+        System.out.println();
+        System.out.println("Please Make Your Selection :");
+        System.out.println("Press 0 for stone");
+        System.out.println("Press 1 for Paper");
+        System.out.println("Press 2 for Scissor");
+        int user_win = 0;
+        int computer_win = 0;
+
+        // loop start
+        for (int i = 0; i < 5; i++) {
+            System.out.println();
+            selection_user = sc.nextInt();
+            selection_com = rand.nextInt(2);
+
+            // for random selection
+            if (selection_com == 0) {
+                System.out.println("SYSTEM SELECTED :Stone ");
+            } else if (selection_com == 1) {
+                System.out.println("SYSTEM SELECTED :Paper ");
+            } else if (selection_com == 2) {
+                System.out.println("SYSTEM SELECTED :Scissor ");
+            } else {
+                System.out.println("Please make a Right selection");
+            }
+
+            // for user selection
+            if (selection_user == 0) {
+                System.out.println("USER SELECTED :Stone");
+            } else if (selection_user == 1) {
+                System.out.println("USER SELECTED :Paper");
+            } else if (selection_user == 2) {
+                System.out.println("USER SELECTED :Scissor");
+            } else {
+                System.out.println("Please make a Right selection");
+            }
+
+            // 0= stone and 1= paper
+            // paper is the winner
+            if (selection_com == 0 && selection_user == 1) {
+                System.out.println("YOU ARE THE WINNER");
+                user_win++;
+            }
+            // 0=stone and 2=scissor
+            // scissor is the winner
+            else if (selection_com == 0 && selection_user == 2) {
+                System.out.println("YOU ARE THE LOSSER");
+                computer_win++;
+            }
+            // 1=paper and 0=stone
+            // paper is the winner
+            else if (selection_com == 1 && selection_user == 0) {
+                System.out.println("YOU ARE THE LOSSER");
+                computer_win++;
+            }
+            // 1=paper and 2=scissor
+            // scissor is the winner
+            else if (selection_com == 1 && selection_user == 2) {
+                System.out.println("YOU ARE THE WINNER");
+                user_win++;
+            }
+            // 2=scissor and 0=stone
+            // stone is the winner
+            else if (selection_com == 2 && selection_user == 0) {
+                System.out.println("YOU ARE THE WINNER");
+                user_win++;
+            }
+            // 2=scissor and 1=paper
+            // scissor is the winner
+            else if (selection_com == 2 && selection_user == 1) {
+                System.out.println("YOU ARE THE LOSSER");
+                computer_win++;
+            }
+
+            // When there is a tie
+            else if (selection_com == 0 && selection_user == 0) {
+                System.out.println("IT'S A TIE");
+            } else if (selection_com == 1 && selection_user == 1) {
+                System.out.println("IT'S A TIE");
+            } else if (selection_com == 2 && selection_user == 2) {
+                System.out.println("IT'S A TIE");
+            } else {
+                System.out.println("Wrong input");
+            }
+            System.out.println("Computer win :" + computer_win + "  user win :" + user_win);
+        } // loop end
+
+        System.out.println();
+        if (computer_win < user_win) {
+            System.out.println("Congratulation,You are the ultimate winner");
+        } else if (computer_win > user_win) {
+            System.out.println("Computer is the ultimate winner");
+        } else {
+            System.out.println("It's a tie");
+        }
+        System.out.println("Thanks For Playing ");
+        sc.close();
+    }
+
+}
