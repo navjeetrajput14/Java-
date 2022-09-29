@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+public class Atm {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int pin = 1234;
+        int balance = 10000;
+        int upin;
+        System.out.println("Enter your pin");
+        upin = sc.nextInt();
+        if (pin == upin) {
+            System.out.println("Welcome Navjeet Rajput");
+            int n = 10;
+            while (n > 0) {
+                System.out.println("Select the option \n 1-credit\n 2-debit\n 3-your balance\n 4-change upin");
+                int option;
+                option = sc.nextInt();
+                if (option == 1) {
+                    System.out.println("Enter the amount you have to credit");
+                    int credit = sc.nextInt();
+                    balance = balance + credit;
+                    System.out.println("Your current balance is " + balance);
+                } else if (option == 2) {
+                    System.out.println("Enter the amount you have to debit");
+                    int debit = sc.nextInt();
+                    if (balance >= debit) {
+                        balance = balance - debit;
+                        System.out.println("Your current balance is " + balance);
+                    } else {
+                        System.out.println("the amount which you entere is higher than balance amount");
+                    }
+                }
+
+                else if (option == 3) {
+                    System.out.println("Your current balance is " + balance);
+                } else if (option == 4) {
+                    System.out.println("Enter your new pin");
+                    int new_upin = sc.nextInt();
+                    System.out.println("Your new pin is " + new_upin);
+                } else {
+                    System.out.println("Incorrect option");
+                }
+                System.out.println("Wheather You want to do it again , press 1 for NO and 2 for yes ");
+                int repeat;
+                repeat = sc.nextInt();
+                if (repeat == 2) {
+                    continue;
+                } else {
+                    System.out.println("Thank you");
+                    System.exit(0);
+
+                }
+            }
+
+        } else {
+            System.out.println("Invalid Pin");
+        }
+        System.out.println("Thank you");
+        sc.close();
+
+    }
+
+}
