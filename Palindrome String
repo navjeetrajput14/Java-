@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+// Palindrome String : example like Kanak 
+public class Palindrome {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input the String to be Check :");
+        String st=sc.nextLine();
+        int len=st.length();
+        
+        String st_rev="";
+        for(int i=len-1;i>=0;i--)
+        {
+            char ch=st.charAt(i);
+            st_rev=st_rev+ch;
+
+        }
+        System.out.println(st_rev);
+        if(st.equals(st_rev))
+        {
+            System.out.println("It is Palindrome String");
+        }
+        else{
+        System.out.println("It is not a Palindrome String");
+        }
+        sc.close();
+
+
+    }
+    
+}
